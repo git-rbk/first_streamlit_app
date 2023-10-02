@@ -25,12 +25,15 @@ batch_id = st.text_input('Batch ID (comma-separated)', key='batch_id')
 app_ref_no = st.text_input('App Ref No (comma-separated)', key='app_ref_no')
 lead_id = st.text_input('Lead ID (comma-separated)', key='lead_id')
 
+# Get the username from user input
+username = st.text_input('Username', key='username')
+
 # Report selection dropdown
 reports = st.selectbox('Select a report', ['Report 1', 'Report 2', 'Report 3'])
 
 # Submit button
 if st.button('Submit'):
-    username = st.session_state.username  # Set username (you should set this value as needed)
+    #username = st.session_state.username  # Set username (you should set this value as needed)
     st.write(f"Hello, {username}! Your {reports} will be placed in the shared folder in a few hours. Kindly wait. Thank you!")
     # Store user parameters in the database
     # cursor.execute('''
