@@ -17,14 +17,20 @@ st.title('Adhoc Reporting App')
 # Get the username from user input
 username = st.text_input('Username', key='username')
 # User input fields
-from_date = st.date_input('From Date', key='from_date')
-to_date = st.date_input('To Date', key='to_date')
-gl_codes = st.text_input('GL Code (comma-separated)', key='gl_codes')
-lan = st.text_input('LAN (comma-separated)', key='lan')
-customer_id = st.text_input('Customer ID (comma-separated)', key='customer_id')
-batch_id = st.text_input('Batch ID (comma-separated)', key='batch_id')
-app_ref_no = st.text_input('App Ref No (comma-separated)', key='app_ref_no')
-lead_id = st.text_input('Lead ID (comma-separated)', key='lead_id')
+with st.beta_container():
+    col1, col2 = st.beta_columns(2)  # Create two columns
+
+    from_date = col1.date_input('From Date', key='from_date')
+    to_date = col2.date_input('To Date', key='to_date')
+
+    gl_codes = st.text_input('GL Code (comma-separated)', key='gl_codes')
+    lan = st.text_input('LAN (comma-separated)', key='lan')
+
+    customer_id = col1.text_input('Customer ID (comma-separated)', key='customer_id')
+    batch_id = col2.text_input('Batch ID (comma-separated)', key='batch_id')
+
+    app_ref_no = col1.text_input('App Ref No (comma-separated)', key='app_ref_no')
+    lead_id = col2.text_input('Lead ID (comma-separated)', key='lead_id')
 
 # Report selection dropdown
 reports = st.selectbox('Select a report', ['Report 1', 'Report 2', 'Report 3'])
