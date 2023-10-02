@@ -2,15 +2,15 @@ import streamlit as st
 import pyodbc
 
 # Database connection setup
-conn = pyodbc.connect(
-    'DRIVER={ODBC Driver 17 for SQL Server};'
-    'SERVER=LocalHost;'
-    'DATABASE=LMS;'
-    'UID=service_account;'
-    'PWD=pwd;'
-)
+#conn = pyodbc.connect(
+#    'DRIVER={ODBC Driver 17 for SQL Server};'
+#    'SERVER=LocalHost;'
+#    'DATABASE=LMS;'
+#    'UID=service_account;'
+#    'PWD=pwd;'
+#)
 
-cursor = conn.cursor()
+#cursor = conn.cursor()
 
 # Streamlit UI
 st.title('Adhoc Reporting App')
