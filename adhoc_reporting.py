@@ -30,17 +30,18 @@ reports = st.selectbox('Select a report', ['Report 1', 'Report 2', 'Report 3'])
 
 # Submit button
 if st.button('Submit'):
+    streamlit.text_input('Hello, {st.session_state.username}! Your {reports} will be placed in the shared folder in a few hours. Kindly wait. Thank you!')
     # Store user parameters in the database
-    cursor.execute('''
-        INSERT INTO adhoc_reporting_parameters
-        (from_date, to_date, gl_codes, lan, customer_id, batch_id, app_ref_no, lead_id, report_name)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    ''', (from_date, to_date, gl_codes, lan, customer_id, batch_id, app_ref_no, lead_id, reports))
+    # cursor.execute('''
+    #    INSERT INTO adhoc_reporting_parameters
+    #    (from_date, to_date, gl_codes, lan, customer_id, batch_id, app_ref_no, lead_id, report_name)
+    #    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    #''', (from_date, to_date, gl_codes, lan, customer_id, batch_id, app_ref_no, lead_id, reports))
     
-    conn.commit()
+    #conn.commit()
 
     # Display a confirmation message
-    st.success(f'Hello, {st.session_state.username}! Your {reports} will be placed in the shared folder in a few hours. Kindly wait. Thank you!')
+    #st.success(f'Hello, {st.session_state.username}! Your {reports} will be placed in the shared folder in a few hours. Kindly wait. Thank you!')
 
 # Close the database connection
-conn.close()
+#conn.close()
