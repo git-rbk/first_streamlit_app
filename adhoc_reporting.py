@@ -13,7 +13,7 @@ import pyodbc
 #cursor = conn.cursor()
 
 # Streamlit UI
-st.title('Adhoc Reporting App')
+st.title('SMFG Reporting App')
 # Get the username from user input
 username = None
 username = st.text_input('Username', key='username')
