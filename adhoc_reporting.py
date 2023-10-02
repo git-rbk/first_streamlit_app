@@ -23,14 +23,15 @@ with st.container():
     from_date = col1.date_input('From Date', key='from_date')
     to_date = col2.date_input('To Date', key='to_date')
     
-    gl_codes = st.text_input('GL Code (comma-separated)', key='gl_codes')
-    lan = st.text_input('LAN (comma-separated)', key='lan')
-
     customer_id = col1.text_input('Customer ID (comma-separated)', key='customer_id')
     batch_id = col2.text_input('Batch ID (comma-separated)', key='batch_id')
 
     app_ref_no = col1.text_input('App Ref No (comma-separated)', key='app_ref_no')
     lead_id = col2.text_input('Lead ID (comma-separated)', key='lead_id')
+
+    gl_codes = col1.text_input('GL Code (comma-separated)', key='gl_codes')
+    lan = col2.text_input('LAN (comma-separated)', key='lan')
+
 
 # Report selection dropdown
 reports = st.selectbox('Select a report', ['Report 1', 'Report 2', 'Report 3'])
