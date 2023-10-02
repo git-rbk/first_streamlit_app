@@ -15,7 +15,7 @@ import pyodbc
 # Streamlit UI
 st.title('Adhoc Reporting App')
 # Get the username from user input
-username = none
+username = None
 username = st.text_input('Username', key='username')
 # User input fields
 with st.container():
