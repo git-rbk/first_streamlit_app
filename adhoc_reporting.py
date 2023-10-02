@@ -30,7 +30,7 @@ reports = st.selectbox('Select a report', ['Report 1', 'Report 2', 'Report 3'])
 
 # Submit button
 if st.button('Submit'):
-    streamlit.write('Hello, {st.session_state.username}! Your {reports} will be placed in the shared folder in a few hours. Kindly wait. Thank you!')
+    streamlit.write(f"'Hello, {st.session_state.username}! Your {reports} will be placed in the shared folder in a few hours. Kindly wait. Thank you!")
     # Store user parameters in the database
     # cursor.execute('''
     #    INSERT INTO adhoc_reporting_parameters
