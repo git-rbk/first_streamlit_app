@@ -39,7 +39,7 @@ if st.button('Submit'):
         
         # Create a unique filename based on the username and report
         file_name = f"{username}_{reports.replace(' ', '_')}.txt"
-        st.success(f"file " {file_name} ")
+        st.success(f"file : {file_name} ")
         # Define the full file path
         file_path = os.path.join(local_folder, filename)
         st.write(f"File Path: {file_path}")
