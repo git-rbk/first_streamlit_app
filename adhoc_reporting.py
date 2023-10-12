@@ -43,7 +43,7 @@ if st.button('Submit'):
         st.success(f"file : {file_name} ")
         # Define the full file path
         file_path = os.path.join(local_folder, file_name)
-        st.write(f"File Path: {file_path}")
+        st.write(f"File Path: {file_path.replace('/', '\')}")
         
         # Write the user inputs to the file
         with open(file_path, 'w') as file:
