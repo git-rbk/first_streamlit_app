@@ -36,7 +36,7 @@ if st.button('Submit'):
         
         # Construct the full file path
         file_name = f"{username}_{reports.replace(' ', '_')}.txt"
-        file_path = {base_folder} + {file_name}
+        file_path = base_folder + file_name
         
         # Debugging: Print the file path to verify correctness
         st.write(f"File Path: {file_path}")
