@@ -1,22 +1,12 @@
 import streamlit as st
-import pyodbc
-
-# Database connection setup
-#conn = pyodbc.connect(
-#    'DRIVER={ODBC Driver 17 for SQL Server};'
-#    'SERVER=LocalHost;'
-#    'DATABASE=LMS;'
-#    'UID=service_account;'
-#    'PWD=pwd;'
-#)
-
-#cursor = conn.cursor()
+import os
 
 # Streamlit UI
 st.title('SMFG Reporting App')
+
 # Get the username from user input
-username = None
 username = st.text_input('Username', key='username')
+
 # User input fields
 with st.container():
     col1, col2 = st.columns(2)  # Create two columns
@@ -33,29 +23,37 @@ with st.container():
     gl_codes = col1.text_input('GL Code (comma-separated)', key='gl_codes')
     lan = col2.text_input('LAN (comma-separated)', key='lan')
 
-
 # Report selection dropdown
 reports = st.selectbox('Select a report', ['Report 1', 'Report 2', 'Report 3'])
 
 # Submit button
 if st.button('Submit'):
-    #username = st.session_state.username  # Set username (you should set this value as needed)
     if not username:
         st.error('Username cannot be empty. Please enter your username.')
     else:
-        # Process the form submission
-        st.write(f"Hello, {username}! Your {reports} will be placed in the shared folder in a few hours. Kindly wait. Thank you!")
-       # Store user parameters in the database
-        # cursor.execute('''
-        #    INSERT INTO adhoc_reporting_parameters
-        #    (from_date, to_date, gl_codes, lan, customer_id, batch_id, app_ref_no, lead_id, report_name)
-        #    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        #''', (from_date, to_date, gl_codes, lan, customer_id, batch_id, app_ref_no, lead_id, reports))
+        # Define the folder path
+        local_folder = r'D:\Interview Materials'
         
-    #conn.commit()
+        # Ensure the folder exists or create it
+        os.makedirs(local_folder, exist_ok=True)
+        
+        # Create a unique filename based on the username and report
+        filename = f'{username}_{reports.replace(" ", "_")}.txt'
+        
+        # Define the full file path
+        file_path = os.path.join(local_folder, filename)
 
-    # Display a confirmation message
-    #st.success(f'Hello, {st.session_state.username}! Your {reports} will be placed in the shared folder in a few hours. Kindly wait. Thank you!')
+        # Write the user inputs to the file
+        with open(file_path, 'w') as file:
+            file.write(f"Username: {username}\n")
+            file.write(f"Report: {reports}\n")
+            file.write(f"From Date: {from_date}\n")
+            file.write(f"To Date: {to_date}\n")
+            file.write(f"Customer ID: {customer_id}\n")
+            file.write(f"Batch ID: {batch_id}\n")
+            file.write(f"App Ref No: {app_ref_no}\n")
+            file.write(f"Lead ID: {lead_id}\n")
+            file.write(f"GL Codes: {gl_codes}\n")
+            file.write(f"LAN: {lan}\n")
 
-# Close the database connection
-#conn.close()
+        st.success(f'User inputs have been saved to: {file_path}')
