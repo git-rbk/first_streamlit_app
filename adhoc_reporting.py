@@ -32,7 +32,7 @@ if st.button('Submit'):
         st.error('Username cannot be empty. Please enter your username.')
     else:
         # Define the folder path
-        local_folder = r'D:\NHB'
+        local_folder = r'D:\PQIS'
         
         # Ensure the folder exists or create it
         os.makedirs(local_folder, exist_ok=True)
@@ -42,7 +42,7 @@ if st.button('Submit'):
         
         # Define the full file path
         file_path = os.path.join(local_folder, filename)
-
+        st.write(f"File Path: {file_path}")
         # Write the user inputs to the file
         with open(file_path, 'w') as file:
             file.write(f"Username: {username}\n")
