@@ -32,18 +32,22 @@ if st.button('Submit'):
         st.error('Username cannot be empty. Please enter your username.')
     else:
         # Define the folder path
-        local_folder = r'D:\\PQIS'
+        base_folder = r'D:\\PQIS'
         
-        # Ensure the folder exists or create it
-        os.makedirs(local_folder, exist_ok=True)
-        
-        # Create a unique filename based on the username and report
+        # Construct the full file path
         file_name = f"{username}_{reports.replace(' ', '_')}.txt"
-
-        st.success(f"file : {file_name} ")
-        # Define the full file path
-        file_path = os.path.join(local_folder, file_name)
-        st.write(f"File Path: {file_path.replace('//', '\\')}")
+        file_path = os.path.join(base_folder, file_name)
+        
+        # Debugging: Print the file path to verify correctness
+        st.write(f"File Path: {file_path}")
+        
+        # Try writing to a file for testing
+        try:
+            with open(file_path, 'w') as file:
+                file.write("Test content")
+                st.write("File written successfully.")
+        except Exception as e:
+            st.error(f"Error writing to file: {e}")
         
         # Write the user inputs to the file
         with open(file_path, 'w') as file:
