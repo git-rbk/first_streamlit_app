@@ -32,7 +32,7 @@ if st.button('Submit'):
         st.error('Username cannot be empty. Please enter your username.')
     else:
         # Define the folder path
-        local_folder = r'D:\Interview Materials'
+        local_folder = r'D:\NHB\'
         
         # Ensure the folder exists or create it
         os.makedirs(local_folder, exist_ok=True)
