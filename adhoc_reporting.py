@@ -39,10 +39,12 @@ if st.button('Submit'):
         
         # Create a unique filename based on the username and report
         file_name = f"{username}_{reports.replace(' ', '_')}.txt"
+
         st.success(f"file : {file_name} ")
         # Define the full file path
-        file_path = os.path.join(local_folder, filename)
+        file_path = os.path.join(local_folder, file_name)
         st.write(f"File Path: {file_path}")
+        
         # Write the user inputs to the file
         with open(file_path, 'w') as file:
             file.write(f"Username: {username}\n")
