@@ -32,12 +32,12 @@ if st.button('Submit'):
         st.error('Username cannot be empty. Please enter your username.')
     else:
         # Define the folder path
-        base_folder = r'D:\\PQIS\\'
+        base_folder = r'D://PQIS'
         
         # Construct the full file path
         file_name = f"{username}_{reports.replace(' ', '_')}.txt"
-        file_path = base_folder + file_name
-        
+        #file_path = f"{base_folder}/{file_name}"
+        file_path = os.path.join(base_folder, file_name)
         # Debugging: Print the file path to verify correctness
         st.write(f"File Path: {file_path}")
         
